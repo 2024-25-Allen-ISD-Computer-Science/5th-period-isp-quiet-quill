@@ -1,0 +1,23 @@
+body {
+    background-color: #141414;
+}
+
+section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    font-family:georgia;
+}
+
+.center img {        
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    position:absolute;
+  }
