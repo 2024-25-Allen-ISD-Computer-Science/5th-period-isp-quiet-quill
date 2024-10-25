@@ -13,6 +13,12 @@ section {
 h1 {
     text-align: center;
     font-family:georgia;
+    color: #efefef;
+}
+
+.container {
+    width: 75%;
+    padding: 16px;
 }
 
 .center img {        

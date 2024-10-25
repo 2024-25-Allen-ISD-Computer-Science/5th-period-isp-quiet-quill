@@ -10,11 +10,28 @@
 
     <div style="display:flex;height:100vh;">
         <section>
-            <h1>Quiet Quill</h1>
+            <h1 style="color:white;">Quiet Quill</h1>
             <img src="quietQuillLogo.jpg" alt="Quiet Quill Team logo" width="250" height="250">
         </section>
         <section>
-            <h1>Quiet Quill</h1>
+            <form style="display:table;margin:0 auto;height:100vh;">
+                <div style="display:table-cell;vertical-align:middle;">
+                    <div class="container">
+                        <label for="uname" style="color:white;"><b>Username</b></label>
+                        <input type="text" style="font-family:courier" placeholder="Enter Username" name="uname" required>
+            
+                        <label for="psw" style="color:white;"><b>Password</b></label>
+                        <input type="password" style="font-family:courier" placeholder="Enter Password" name="psw" required>
+            
+                            <button type="submit" style="margin-top:20px;">Login</button>
+    
+                        <br>
+    
+                        <h5 style="color:white;text-align:center;"> New user? </h5>
+                        <h5 style="cursor:pointer;color:white;text-decoration:underline;text-align:center;"><a style="color:white;" href="/signup.html">Sign Up</a></h5>
+                    </div>
+                </div>
+            </form>
         </section>
     </div>
 
