@@ -39,6 +39,10 @@ h1 {
     color: #efefef;
 }
 
+label, input, button {
+    font-family: georgia;
+}
+
 .container {
     width: 75%;
     padding: 16px;
