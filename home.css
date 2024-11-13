@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    background: linear-gradient(-45deg, #1C1C1C, #4D4D4D, #BFBFBF, #E9C46A);
+    background: linear-gradient(45deg, #1C1C1C, #4D4D4D, #BFBFBF, #E9C46A);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
 }
@@ -49,4 +49,39 @@ h1 {
     margin-left:auto;
     margin-right:auto;
     position:absolute;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #232630;
+}
+
+.active {
+  background-color: #E9C46A;
 }
