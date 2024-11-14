@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Essay Review Marketplace</title>
+    <link rel="stylesheet" href="review.css">
+    <link rel="stylesheet" href="../home.css">
+</head>
+<body>
+    <ul>
+        <li><a href="/home.html">Home</a></li>
+        <li><a href="#submit">Submit Essays</a></li>
+        <li><a class="active" href="/reviewEssays/review.html">Review Essays</a></li>
+        <li><a href="#feedback">My Feedback</a></li>
+        <li style="float:right"><a href="#profile">Profile</a></li>
+    </ul>
+    <div class="container">
+        <h1>Essays Available For Review</h1>
+        <div class="grid" id="essayGrid">
+
+        </div>
+    </div>
+
+    <script>
+        function addGridItems(numItems) {
+            const grid = document.getElementById('essayGrid');
+            for (let i = 0; i <= numItems; i++) {
+                const gridItem = document.createElement('div');
+                gridItem.className = 'grid-item';
+                gridItem.innerHTML = `
+                    <h2>Essay Title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel urna vitae libero bibendum tristique. Nulla facilisi. Aenean luctus, libero sit amet vehicula dictum, augue felis posuere justo, in fermentum eros ligula sit amet nulla. Donec vel mauris nec eros vehicula tristique</p>
+                `;
+                grid.appendChild(gridItem);
+            }
+        }
+        //change to dynamic based on essays in backend
+        addGridItems(9);
+    </script>
+
+</body>
+</html>
