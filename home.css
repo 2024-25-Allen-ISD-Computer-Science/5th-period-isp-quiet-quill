@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    background: linear-gradient(45deg, #1C1C1C, #4D4D4D, #BFBFBF, #E9C46A);
+    background: linear-gradient(45deg, #F5F5DC, #139A43, #214E34);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
 }
@@ -83,5 +83,12 @@ li a:hover:not(.active) {
 }
 
 .active {
-  background-color: #E9C46A;
+  background-color: #192A51;
+}
+
+.circle-logo {
+  border-radius: 50%;
+  width: 280px;
+  height: 280px;
+  object-fit: cover; /* Ensures the image fits the circle without distortion */
 }
