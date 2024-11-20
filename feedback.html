@@ -6,8 +6,115 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Feedback</title>
     <link rel="stylesheet" href="../home.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+
+        li a:active {
+            background-color: #4CAF50;
+        }
+
+        .filler-text {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filler-text h2 {
+            color: #333;
+        }
+
+        .slider-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input[type="range"] {
+            width: 80%;
+            max-width: 600px;
+            margin: 10px 0;
+        }
+
+        .slider-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .feedback-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .feedback-form input[type="text"],
+        .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .feedback-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .feedback-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Navigation bar -->
     <ul>
         <li><a href="/home.html">Home</a></li>
         <li><a href="#submit">Submit Essays</a></li>
@@ -16,7 +123,7 @@
         <li style="float:right"><a href="#profile">Profile</a></li>
     </ul>
 
-
+    <!-- Filler text sections -->
     <div class="filler-text">
         <h2>Filler Text Section 1</h2>
         <p>
@@ -31,5 +138,35 @@
         </p>
     </div>
 
+    <!-- Slider for feedback -->
+    <div class="slider-container">
+        <h2>Rate The Essay</h2>
+        <input type="range" id="feedbackSlider" min="1" max="10" step="1" value="5">
+        <p class="slider-value" id="sliderValue">5</p>
+    </div>
+
+    <!-- Feedback form -->
+    <div class="feedback-form">
+        <h3>Give Us Your Feedback</h3>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Your feedback here..." required></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script>
+        // Update slider value display
+        const feedbackSlider = document.getElementById('feedbackSlider');
+        const sliderValue = document.getElementById('sliderValue');
+
+        feedbackSlider.addEventListener('input', function () {
+            sliderValue.textContent = feedbackSlider.value;
+        });
+    </script>
 </body>
 </html>
