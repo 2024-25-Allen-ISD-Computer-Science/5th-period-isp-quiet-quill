@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essay Submission</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="submit.css">
+  <link rel="stylesheet" href="../home.css">
+</head>
+<body>
+    <ul>
+      <li><a href="/home.html">Home</a></li>
+      <li><a class="active" href="/submitEssay/submit.html">Submit Essays</a></li>
+      <li><a href="/reviewEssays/review.html">Review Essays</a></li>
+      <li><a href="/feedback.html">My Feedback</a></li>
+      <li style="float:right"><a href="#profile">Profile</a></li>
+  </ul>
+
+  <div id="essayModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form action="/submit_essay" method="POST">
+        <label for="title">Essay Title/Subject</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="essay">Essay</label>
+        <textarea id="essay" name="essay" rows="10" required></textarea>
+
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Essay Submission Form</h1>
+    <button id="openModalBtn" class="popup-btn">Submit Essay</button>
+
+    <h1>My Essays</h1>
+    <div class="grid" id="essayGrid">
+
+    </div>
+  </div>
+
+  <script>
+    var modal = document.getElementById("essayModal");
+    var btn = document.getElementById("openModalBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+  <script>
+    function addGridItems(numItems) {
+        const grid = document.getElementById('essayGrid');
+        for (let i = 1; i <= numItems; i++) {
+            const gridItem = document.createElement('div');
+            gridItem.className = 'grid-item';
+            gridItem.innerHTML = `
+                <h2>Essay Title ${i}</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel urna vitae libero bibendum tristique. Nulla facilisi.</p>
+            `;
+            grid.appendChild(gridItem);
+        }
+    }
+
+    addGridItems(3);
+  </script>
+
+</body>
+</html>

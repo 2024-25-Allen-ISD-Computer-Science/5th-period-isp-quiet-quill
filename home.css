@@ -124,5 +124,5 @@ li a:hover:not(.active) {
   border-radius: 50%;
   width: 280px;
   height: 280px;
-  object-fit: cover; /* Ensures the image fits the circle without distortion */
+  object-fit: cover; /*make sure the image fits distorion*/
 }
