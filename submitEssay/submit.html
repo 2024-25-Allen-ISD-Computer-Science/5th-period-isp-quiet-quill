@@ -14,7 +14,7 @@
       <li><a class="active" href="/submitEssay/submit.html">Submit Essays</a></li>
       <li><a href="/reviewEssays/review.html">Review Essays</a></li>
       <li><a href="/feedback.html">My Feedback</a></li>
-      <li style="float:right"><a href="../profile.html">Profile</a></li>
+      <li style="float:right"><a href="#profile">Profile</a></li>
   </ul>
 
   <div id="essayModal" class="modal">
@@ -63,20 +63,51 @@
   </script>
 
   <script>
-    function addGridItems(numItems) {
+    function addGridItems(numItems, title, body) {
         const grid = document.getElementById('essayGrid');
         for (let i = 1; i <= numItems; i++) {
             const gridItem = document.createElement('div');
             gridItem.className = 'grid-item';
             gridItem.innerHTML = `
-                <h2>Essay Title ${i}</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel urna vitae libero bibendum tristique. Nulla facilisi.</p>
+                <h2>${title}</h2>
+                <p>${body}</p>
             `;
             grid.appendChild(gridItem);
         }
     }
+    addGridItems(1, 
+    "Test Essay",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt, odio vel varius fringilla, neque purus malesuada velit, sit amet vehicula velit est at odio. Integer sodales, purus sed tristique egestas, justo magna aliquet nisi, sit amet consequat lacus nisl eu mauris. Praesent vel enim quis metus tristique feugiat at non nulla. Aliquam sit amet felis sed velit consequat vulputate a ac erat."
+    )
+  </script>
 
-    addGridItems(3);
+  <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+      import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDtWQvR0g7glI6UmARjzbPqbqWor-1RGbI",
+      authDomain: "quiet-quill-d2bf0.firebaseapp.com",
+      projectId: "quiet-quill-d2bf0",
+      storageBucket: "quiet-quill-d2bf0.firebasestorage.app",
+      messagingSenderId: "722653771174",
+      appId: "1:722653771174:web:d830bad6b8adb07b9e0b67"
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    function getData() {
+      db.collection("essays").doc("YeBO96ehhdClbZwTH6Xf").get()
+      .then(function () {
+        if(doc.exists) {
+          addGridItems(1, doc.data().Title, doc.data().Body)
+        }
+      })
+      .catch(function(error) {
+        console.error("Error reading data")
+      })
+    }
   </script>
 
 </body>
