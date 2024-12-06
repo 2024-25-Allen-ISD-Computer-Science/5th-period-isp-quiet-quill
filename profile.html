@@ -4,7 +4,21 @@
 <title>Profile</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="/home.css">
-<script src=""></script>
+<script>
+function showDropdown(dropdownId) {
+    var dropdowns = document.querySelectorAll('.dropdown-content');
+    dropdowns.forEach(function(dropdown) {
+        dropdown.style.display = 'none';
+    });
+
+    var currentDropdown = document.getElementById('content' + dropdownId);
+    if (currentDropdown.style.display === 'block') {
+        currentDropdown.style.display = 'none';
+    } else {
+        currentDropdown.style.display = 'block';
+    }
+}
+</script>
 
 <body>
 
@@ -23,6 +37,26 @@
         </section>
         <section>
             <h1>Activity</h1>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="showDropdown(1)">Submitted Essays</button>
+                <div class="dropdown-content" id="content1">
+                    <h2>Essay 1 <i>(Rating)</i></h2>
+                </div>
+            </div>
+            <br>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="showDropdown(2)">Feedback History</button>
+                <div class="dropdown-content" id="content2">
+                    <h2>Feedback 1 <i>(Date)</i></h2>
+                </div>
+            </div>
+            <br>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="showDropdown(3)">Account Settings</button>
+                <div class="dropdown-content" id="content3">
+                    <h2>Permissions</h2>
+                </div>
+            </div>
         </section>
     </div>
 
