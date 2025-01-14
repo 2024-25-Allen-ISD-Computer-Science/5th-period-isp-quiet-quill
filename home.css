@@ -34,7 +34,6 @@ h1 {
   position: relative;
   display: inline-block;
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .dropbtn {
@@ -46,6 +45,7 @@ h1 {
   cursor: pointer;
   width: 100%;
   box-sizing: border-box;
+  margin: 0;
 }
 
 .dropdown-content {
@@ -54,10 +54,10 @@ h1 {
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 10px 10px;
   z-index: 1;
   width: 100%;
   box-sizing: border-box;
-  margin-bottom: 20px;
 }
 
 .container {
@@ -105,6 +105,16 @@ li a:hover:not(.active) {
 
 .active {
   background-color: #47a34a;
+}
+
+button {
+  font-family: georgia;
+  text-align: center;
+  padding: 14px 16px;
+  border: none;
+  color: white;
+  background-color: #47a34a;
+  cursor: pointer;
 }
 
 .circle-logo {

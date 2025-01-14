@@ -6,16 +6,38 @@
 <link rel="stylesheet" href="/home.css">
 <script>
 function showDropdown(dropdownId) {
-    var dropdowns = document.querySelectorAll('.dropdown-content');
-    dropdowns.forEach(function(dropdown) {
-        dropdown.style.display = 'none';
+    var allDropdowns = document.querySelectorAll('.dropdown');
+    allDropdowns.forEach(function(dropdown) {
+        dropdown.style.marginBottom = '0';
     });
+    
+    var dropdowns = document.querySelectorAll('.dropdown-content');
+    var currentDropdown = document.getElementById('dropdown' + dropdownId);
+    var currentDropdownContent = document.getElementById('content' + dropdownId);
+    let dropdownOne = document.getElementById('content1');
+    let dropdownTwo = document.getElementById('content2');
+    let dropdownThree = document.getElementById('content3');
 
-    var currentDropdown = document.getElementById('content' + dropdownId);
-    if (currentDropdown.style.display === 'block') {
-        currentDropdown.style.display = 'none';
+    if (dropdownId == 1 && dropdownOne.style.display === 'block') {
+        dropdownOne.style.display = 'none';
+        return;
+    } else if (dropdownId == 2 && dropdownTwo.style.display === 'block') {
+        dropdownTwo.style.display = 'none';
+        return;
+    } else if (dropdownId == 3 && dropdownThree.style.display === 'block') {
+        dropdownThree.style.display = 'none';
+        return;
     } else {
-        currentDropdown.style.display = 'block';
+        dropdowns.forEach(function(dropdown) {
+            dropdown.style.display = 'none';
+        });
+        if (currentDropdownContent.style.display === 'block') {
+            currentDropdownContent.style.display = 'none';
+            currentDropdown.style.marginBottom = '0';
+        } else {
+            currentDropdownContent.style.display = 'block';
+            currentDropdown.style.marginBottom = currentDropdown.offsetHeight + 25 + 'px';
+        }
     }
 }
 </script>
@@ -37,24 +59,34 @@ function showDropdown(dropdownId) {
         </section>
         <section>
             <h1>Activity</h1>
-            <div class="dropdown">
+            <div class="dropdown" id="dropdown1">
                 <button class="dropbtn" onclick="showDropdown(1)">Submitted Essays</button>
                 <div class="dropdown-content" id="content1">
-                    <h2>Essay 1 <i>(Rating)</i></h2>
+                    <h2><a href="/submitEssay/submit.html" style="color:#0000FF;">Essay 1</a><i> (X/10)</i></h2>
+                    <h2><a href="/submitEssay/submit.html" style="color:#0000FF;">Essay 2</a><i> (X/10)</i></h2>
+                    <h2><a href="/submitEssay/submit.html" style="color:#0000FF;">Essay 3</a><i> (X/10)</i></h2>
                 </div>
             </div>
             <br>
-            <div class="dropdown">
+            <div class="dropdown" id="dropdown2">
                 <button class="dropbtn" onclick="showDropdown(2)">Feedback History</button>
                 <div class="dropdown-content" id="content2">
-                    <h2>Feedback 1 <i>(Date)</i></h2>
+                    <h2><a href="/feedback.html" style="color:#0000FF;">Feedback 1</a><i> (XX/XX/XXXX)</i></h2>
+                    <h2><a href="/feedback.html" style="color:#0000FF;">Feedback 1</a><i> (XX/XX/XXXX)</i></h2>
+                    <h2><a href="/feedback.html" style="color:#0000FF;">Feedback 1</a><i> (XX/XX/XXXX)</i></h2>
                 </div>
             </div>
             <br>
-            <div class="dropdown">
+            <div class="dropdown" id="dropdown3">
                 <button class="dropbtn" onclick="showDropdown(3)">Account Settings</button>
                 <div class="dropdown-content" id="content3">
-                    <h2>Permissions</h2>
+                    <h2>Username: </h2>
+                    <hr>
+                    <h2>Email Address: </h2>
+                    <hr>
+                    <h2>Password: </h2>
+                    <hr>
+                    <button>Log Out</button>
                 </div>
             </div>
         </section>
