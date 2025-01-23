@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="/login.css">
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="firebaseFunctions/firebase.js"></script>
 
 <body>
 
@@ -23,7 +24,7 @@
                         <label for="psw" style="color:white;"><b>Password</b></label>
                         <input type="password" style="display: block; width: 100%;" placeholder="Enter Password:" name="psw" required>
             
-                        <button type="submit" style="margin-top:20px; width: 100%;">Login</button>
+                        <button type="submit" onclick="loginUser(email, password)" style="margin-top:20px; width: 100%;">Login</button>
 
                         <br>
 
