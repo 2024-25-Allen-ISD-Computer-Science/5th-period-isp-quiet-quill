@@ -8,7 +8,7 @@ particlesJS('particles-js', {
             }
         },
         shape: {
-            type: 'circle', // You can also use 'polygon', 'edge', etc.
+            type: 'circle',
             stroke: {
                 width: 0,
                 color: '#000000'
@@ -34,3 +34,5 @@ particlesJS('particles-js', {
         }
     }
 });
+
+
