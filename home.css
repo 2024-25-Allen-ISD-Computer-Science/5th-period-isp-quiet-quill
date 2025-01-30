@@ -30,6 +30,13 @@ h1 {
     color: #efefef;
 }
 
+p {
+  text-align: center;
+  font-family:georgia;
+  color: #efefef;
+  font-size: 16px;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
