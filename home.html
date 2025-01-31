@@ -21,12 +21,30 @@
     <div class="chat-window">
         <h3>Chat</h3>
         <div class="chat-messages">
-            <p>Welcome to QuietQuill Chat!</p>
+            <div class="message left">hello</div>
+            <div class="message right">hey</div>
+            <div class="message left">this is a message test</div>
+            <div class="message right">this is working</div>
         </div>
         <input type="text" class="chat-input" placeholder="Type a message...">
     </div>
 
 </body>
+
+<script>
+    window.onclick = function(event) {
+        const chatWindow = document.getElementById('chat-messages');
+
+        getMessages().then(messages => {
+            chatWindow.innerHTML = '';
+            messages.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.textContent = msg.text;
+                chatWindow.appendChild(messageDiv);
+            });
+        });
+    }
+  </script>
 </html>
 
 
