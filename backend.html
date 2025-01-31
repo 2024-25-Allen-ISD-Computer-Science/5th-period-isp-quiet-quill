@@ -33,6 +33,10 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
+            if (window.main) {
+                window.main.handleSignup(email, password);
+            }
+
             auth.createUserWithEmailAndPassword(email, password)
                 .then((userCredential) => {
                     // Signed in 
