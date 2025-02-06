@@ -180,3 +180,25 @@ button {
 .chat-input::placeholder {
     color: #aaa;
 }
+
+.message {
+  display: block;
+  width: fit-content;
+  padding: 6px 15px;
+  margin-bottom: 10px;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+  display: block;
+  word-wrap: break-word;
+  color: black
+}
+.message.left {
+  background-color: #d1e7dd;
+  align-self: flex-start;
+}
+.message.right {
+  background-color: #cce5ff;
+  align-self: flex-end;
+}

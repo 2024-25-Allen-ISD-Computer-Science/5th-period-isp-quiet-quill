@@ -18,28 +18,41 @@
     </ul>
     <div class="container">
         <h1>Essays Available For Review</h1>
-        <div class="grid" id="essayGrid">
-
-        </div>
+        <div class="grid" id="essayGrid"></div>
     </div>
 
-    <script  type="text/javascript" src="../firebaseFunctions/firebase.js">
-        function addGridItems(numItems) {
-            const grid = document.getElementById('essayGrid');
-            for (let i = 0; i <= numItems; i++) {
-                const gridItem = document.createElement('div');
-                gridItem.className = 'grid-item';
+    <script>
+        // Sample essays to populate the page
+        const sampleEssays = [
+            { title: "The Future of Artificial Intelligence", body: "Artificial Intelligence (AI) has rapidly advanced over the past decade, influencing various sectors such as healthcare, finance, and automation. The potential of AI raises ethical concerns and opportunities for innovation..." },
+            { title: "The Impact of Climate Change", body: "Climate change is an ongoing crisis that affects global temperatures, weather patterns, and sea levels. Immediate action is necessary to mitigate its devastating effects on both ecosystems and human populations..." },
+            { title: "The Role of Social Media in Society", body: "Social media platforms have transformed how people communicate, access news, and build communities. However, they also raise concerns about privacy, misinformation, and mental health..." },
+            { title: "The Importance of Space Exploration", body: "Space exploration has led to groundbreaking discoveries about our universe. From the Moon landing to Mars rovers, these missions inspire future generations and expand scientific knowledge..." },
+            { title: "How Technology is Changing Education", body: "With the rise of online learning platforms and AI-driven tutoring systems, technology is reshaping the education sector. While it offers accessibility, challenges like digital divide must be addressed..." }
+        ];
+
+        function addFakeEssays() {
+            const grid = document.getElementById("essayGrid");
+
+            sampleEssays.forEach(essay => {
+                const gridItem = document.createElement("div");
+                gridItem.className = "grid-item";
                 gridItem.innerHTML = `
-                    <h2>Essay Title</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel urna vitae libero bibendum tristique. Nulla facilisi. Aenean luctus, libero sit amet vehicula dictum, augue felis posuere justo, in fermentum eros ligula sit amet nulla. Donec vel mauris nec eros vehicula tristique</p>
+                    <h2>${essay.title}</h2>
+                    <p>${essay.body.substring(0, 150)}...</p> 
+                    <button onclick="reviewEssay('${essay.title}', '${essay.body.replace(/'/g, "\\'")}')">Review</button>
                 `;
                 grid.appendChild(gridItem);
-            }
+            });
         }
-        //change to dynamic based on essays in backend
-        addGridItems(9);
-    </script>
 
+        function reviewEssay(title, body) {
+            alert(`Reviewing: ${title}\n\n${body.substring(0, 300)}...`);
+        }
+
+        // Load  essays on page load
+        window.onload = addFakeEssays;
+    </script>
 
 </body>
 </html>
