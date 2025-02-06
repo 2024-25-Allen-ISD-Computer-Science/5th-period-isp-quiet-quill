@@ -97,11 +97,21 @@ function loginUser(email, password) {
       });
   }
   
-  document.getElementById('loginButton').addEventListener('click', () => {
+document.getElementById('loginButton').addEventListener('click', () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     loginUser(email, password);
-  });
+});
 
+function displayUserInfo(user) {
+    const emailElement = document.getElementById('user-email');
+    emailElement.innerText = `Logged in as: ${user.email}`;
+}
 
-
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        displayUserInfo(user);
+    } else {
+        console.log("No user is logged in.");
+    }
+})

@@ -4,6 +4,10 @@
 <title>Profile</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="/home.css">
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js"></script>
+<script src="firebase.js"></script>
+<script src="main.js"></script>
 <script>
 function showDropdown(dropdownId) {
     var allDropdowns = document.querySelectorAll('.dropdown');
@@ -40,6 +44,12 @@ function showDropdown(dropdownId) {
         }
     }
 }
+
+document.getElementById('loginButton').addEventListener('click', function() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        loginUser(email, password);
+    });
 </script>
 
 <body>
@@ -83,8 +93,7 @@ function showDropdown(dropdownId) {
                     <h2>Username: </h2>
                     <hr>
                     <h2>Email Address: </h2>
-                    <hr>
-                    <h2>Password: </h2>
+                    <div id="user-email" style="color:black;"></div>
                     <hr>
                     <button><a href="login.html" style="color:white;text-decoration:none;">Log Out</a></button>
                 </div>

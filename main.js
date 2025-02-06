@@ -11,8 +11,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 window.main = {
-    handleSignup: function(email, password) {
+    handleSignup: function(email) {
         console.log("Email received:", email);
-        console.log("Password received:", password);
     }
 };
