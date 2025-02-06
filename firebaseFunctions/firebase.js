@@ -83,19 +83,6 @@ function removeData(id, title, userID, body) {
         alert("unsuccessful, error"+error)
     })
 }
-
-function loginUser(email, password) {
-    auth.signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log("Login successful:", user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.error("Error logging in:", errorCode, errorMessage);
-      });
-  }
   
 document.getElementById('loginButton').addEventListener('click', () => {
     const email = document.getElementById('email').value;
