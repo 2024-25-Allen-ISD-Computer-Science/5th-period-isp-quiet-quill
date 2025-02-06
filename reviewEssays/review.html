@@ -7,6 +7,43 @@
     <title>Essay Review Marketplace</title>
     <link rel="stylesheet" href="review.css">
     <link rel="stylesheet" href="../home.css">
+    <style>
+        /* Modal Style */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #0e0d0d;
+            width: 80%;
+        }
+
+        .close {
+            color: #0a0a0a;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <ul>
@@ -16,9 +53,19 @@
         <li><a href="/feedback.html">My Feedback</a></li>
         <li style="float:right"><a href="../profile.html">Profile</a></li>
     </ul>
+
     <div class="container">
         <h1>Essays Available For Review</h1>
         <div class="grid" id="essayGrid"></div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="essayModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalBody"></p>
+        </div>
     </div>
 
     <script>
@@ -47,10 +94,30 @@
         }
 
         function reviewEssay(title, body) {
-            alert(`Reviewing: ${title}\n\n${body.substring(0, 300)}...`);
+            // Set the title and body for the modal
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalBody").innerText = body;
+
+            // Show the modal
+            const modal = document.getElementById("essayModal");
+            modal.style.display = "block";
         }
 
-        // Load  essays on page load
+        // Close the modal when the user clicks on <span> (x)
+        document.querySelector(".close").onclick = function() {
+            const modal = document.getElementById("essayModal");
+            modal.style.display = "none";
+        }
+
+        // Close the modal if the user clicks outside of the modal content
+        window.onclick = function(event) {
+            const modal = document.getElementById("essayModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Load essays on page load
         window.onload = addFakeEssays;
     </script>
 
