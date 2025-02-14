@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Quiet Quill</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="/Meet-The-Team.css">
+<script src=""></script>
+
+<body>
+
+    <ul class="navigation">
+        <li><a class="active" href="/home.html">Home</a></li>
+        <li><a href="/submitEssay/submit.html">Submit Essays</a></li>
+        <li><a href="/reviewEssays/review.html">Review Essays</a></li>
+        <li><a href="/feedback.html">Feedback</a></li>
+        <li><a href="/View-Essay-To-Edit.html"> View My Essays to Edit</a></li>
+        <li><a href=""> Meet the Team</a></li>
+        <li style="float:right"><a href="/profile.html">Profile</a></li>
+    </ul>
+
+    
+
+    
+    <div class="card-container">
+        <div class="c4rd">
+          <img src="profile-image.png">
+          <div class="card-content">
+            <h3>Rey Perez</h3>
+            <p>Project Manager</p>
+            <a href="" class="btn" target="_blank">Github</a>
+          </div>
+        </div>
+        <div class="c4rd">
+          <img src="profile-image.png">
+          <div class="card-content">
+            <h3>Rohit Bhupathiraju</h3>
+            <p>Product Manager</p>
+            <a href="" class="btn" target="_blank">Github</a>
+          </div>
+        </div>
+        <div class="c4rd">
+          <img src="profile-image.png">
+          <div class="card-content">
+            <h3>Arav Lohe</h3>
+            <p>Quality Analyst</p>
+            <a href="" class="btn" target="_blank">Github</a>
+          </div>
+        </div>
+
+        <div class="c4rd">
+            <img src="profile-image.png">
+            <div class="card-content">
+              <h3>Vansh Bhatt</h3>
+              <p>Release Manager</p>
+              <a href="https://github.com/theogflamez" class="btn" target="_blank">Github</a>
+            </div>
+          </div>
+      </div>
+
+
+
+
+
+</body>
+
+<script>
+    window.onclick = function(event) {
+        const chatWindow = document.getElementById('chat-messages');
+
+        getMessages().then(messages => {
+            chatWindow.innerHTML = '';
+            messages.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.textContent = msg.text;
+                chatWindow.appendChild(messageDiv);
+            });
+        });
+    }
+  </script>
+</html>
+
+
+
+
