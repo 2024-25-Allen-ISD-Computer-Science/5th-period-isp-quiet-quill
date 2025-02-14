@@ -25,9 +25,17 @@ section {
 }
 
 h1 {
-    text-align: center;
-    font-family:georgia;
-    color: #efefef;
+  font-size: 45px;
+  text-align: center;
+  font-family:georgia;
+  color: #efefef;
+}
+
+h2 {
+  font-size: 32px;
+  text-align: center;
+  font-family:georgia;
+  color: #efefef;
 }
 
 p {
@@ -79,7 +87,11 @@ p {
     position:absolute;
 }
 
-ul {
+hr {
+  border: 1px solid white;
+}
+
+ul.navigation {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -89,13 +101,35 @@ ul {
   position: sticky;
 }
 
+ul.normal-list {
+  list-style-type: disc;
+  display: block;
+  padding-left: 5px;
+  margin: 0;
+}
+
+ul.normal-list li {
+  list-style-position: inside;
+  display: list-item;
+  text-align: left;
+  margin: 10px 0;
+}
+
 li {
   float: left;
-  border-right:1px solid #bbb;
+  border-right: 1px solid #bbb;
 }
 
 li:last-child {
   border-right: none;
+  border-left: 1px solid #bbb;
+}
+
+li.normal-list {
+  border: none;
+  font-family:georgia;
+  color: #efefef;
+  font-size: 22px;
 }
 
 li a {
