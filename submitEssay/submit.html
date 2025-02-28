@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Essay Submission</title>
-  <!-- Link to external CSS file -->
   <link rel="stylesheet" href="submit.css">
   <link rel="stylesheet" href="../home.css">
 </head>
@@ -33,10 +32,8 @@
   </div>
 
   <div class="container">
-    <h1>Essay Submission Form</h1>
-    <button id="openModalBtn" class="popup-btn">Submit Essay</button>
-
     <h1>My Essays</h1>
+    <button id="openModalBtn" class="popup-btn">Submit Essay</button>
     <div class="grid" id="essayGrid">
 
     </div>
@@ -71,6 +68,8 @@
             gridItem.innerHTML = `
                 <h2>${title}</h2>
                 <p>${body}</p>
+                <button class="edit-btn">Edit</button>
+                <button class="remove-btn">Remove</button>
             `;
             grid.appendChild(gridItem);
         }
