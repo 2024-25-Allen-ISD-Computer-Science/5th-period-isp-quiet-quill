@@ -22,7 +22,7 @@
         }
 
         /* Navigation Bar */
-        ul {
+        ul.navigation {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -42,10 +42,6 @@
             color: white;
             text-decoration: none;
             transition: background-color 0.3s;
-        }
-
-        li a:hover {
-            background-color: #575757;
         }
 
         .active {
@@ -187,12 +183,13 @@
     <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
     <!-- Navigation Bar -->
-    <ul>
-        <li><a class="active" href="/home.html">Home</a></li>
+    <ul class="navigation">
+        <li><a href="/home.html">Home</a></li>
         <li><a href="/submitEssay/submit.html">Submit Essays</a></li>
         <li><a href="/reviewEssays/review.html">Review Essays</a></li>
         <li><a href="/feedback.html">Feedback</a></li>
-        <li><a href="/View-Essay-To-Edit.html">View My Essays to Edit</a></li>
+        <li><a class="active" href="/View-Essay-To-Edit.html">View My Essays to Edit</a></li>
+        <li><a href="/Meet-The-Team.html">Meet the Team</a></li>
         <li><a href="/profile.html">Profile</a></li>
     </ul>
 
