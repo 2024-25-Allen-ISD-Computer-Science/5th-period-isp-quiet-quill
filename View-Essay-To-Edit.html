@@ -2,70 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quiet Quill</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiet Quill</title>
     <link rel="stylesheet" href="/home.css">
     <script defer src="/script.js"></script>
     <style>
-        /* General Body Styling */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             transition: background 0.3s, color 0.3s;
         }
-
-        /* Dark Mode */
         .dark-mode {
             background-color: #121212;
             color: white;
         }
-
-        /* Navigation Bar */
-        ul.navigation {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: #333;
+        .dark-mode .white-page {
+            background: #333;
+            color: white;
+            border-color: #555;
+        }
+        .navigation {
+            list-style: none;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
+            padding: 10px;
+            background-color: #333;
         }
-
-        li {
-            flex: 1;
-        }
-
-        li a {
-            display: block;
-            text-align: center;
-            padding: 14px;
+        .navigation a {
             color: white;
             text-decoration: none;
-            transition: background-color 0.3s;
+            padding: 14px;
+            transition: background 0.3s;
         }
-
+        .navigation a:hover {
+            background: #555;
+        }
         .active {
-            background-color: #4CAF50;
+            background: #4CAF50;
         }
-
         .dark-mode-toggle {
             background: #555;
             color: white;
             padding: 10px;
             border: none;
             cursor: pointer;
-            transition: background 0.3s;
         }
-
-        .dark-mode-toggle:hover {
-            background: #333;
-        }
-
-        /* Essay Editor */
         .main-container {
             padding: 20px;
         }
-
         .white-page {
             width: 100%;
             min-height: 300px;
@@ -74,33 +59,25 @@
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
             overflow-y: auto;
         }
-
-        /* Button Styling */
         .button-container {
             display: flex;
             gap: 10px;
             justify-content: center;
         }
-
         .button-container button {
             padding: 12px 18px;
-            border: none;
             border-radius: 6px;
             background-color: #4CAF50;
             color: white;
             cursor: pointer;
             transition: transform 0.2s, background-color 0.3s;
         }
-
         .button-container button:hover {
             background-color: #45a049;
             transform: scale(1.05);
         }
-
-        /* Chat Window */
         .chat-window {
             position: fixed;
             bottom: 20px;
@@ -110,79 +87,32 @@
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
         }
-
-        .chat-window h3 {
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
         .chat-messages {
-            flex: 1;
             max-height: 200px;
             overflow-y: auto;
-            margin-bottom: 10px;
-            padding-right: 10px;
         }
-
         .message {
             padding: 8px 12px;
             margin: 5px;
             border-radius: 10px;
             max-width: 75%;
         }
-
-        .right {
-            background-color: #4CAF50;
-            color: white;
-            align-self: flex-end;
-        }
-
-        .left {
-            background-color: #f0f0f0;
-            color: #333;
-            align-self: flex-start;
-        }
-
-        /* Chat Input */
+        .right { background: #4CAF50; color: white; }
+        .left { background: #f0f0f0; color: #333; }
         .chat-input {
+            width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 6px;
-            margin-bottom: 10px;
-            outline: none;
-            font-size: 14px;
         }
-
-        .chat-input:focus {
-            border-color: #4CAF50;
-        }
-
-        /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
-            .main-container {
-                padding: 15px;
-            }
-
-            .chat-window {
-                width: 270px;
-                bottom: 10px;
-                right: 10px;
-            }
+            .chat-window { width: 270px; }
         }
-
     </style>
 </head>
 <body>
-
-    <!-- Dark Mode Toggle -->
     <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-
-    <!-- Navigation Bar -->
     <ul class="navigation">
         <li><a href="/home.html">Home</a></li>
         <li><a href="/submitEssay/submit.html">Submit Essays</a></li>
@@ -192,33 +122,25 @@
         <li><a href="/Meet-The-Team.html">Meet the Team</a></li>
         <li><a href="/profile.html">Profile</a></li>
     </ul>
-
-    <!-- Essay Editor -->
     <div class="main-container">
-        <div class="white-page" contenteditable="true">
-            Start writing your essay here...
-        </div>
+        <div class="white-page" contenteditable="true">Start writing your essay here...</div>
         <div class="button-container">
             <button class="highlighter">Highlighter</button>
             <button class="comment">Comment</button>
             <button class="underline">Underline</button>
         </div>
     </div>
-
-    <!-- Chat Window -->
     <div class="chat-window">
         <h3>Chat</h3>
         <div id="chat-messages" class="chat-messages"></div>
         <input type="text" id="chat-input" class="chat-input" placeholder="Type a message...">
         <button id="send-message">Send</button>
     </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const chatWindow = document.getElementById("chat-messages");
             const chatInput = document.getElementById("chat-input");
             const sendButton = document.getElementById("send-message");
-
             function appendMessage(text, className) {
                 const messageDiv = document.createElement("div");
                 messageDiv.textContent = text;
@@ -226,33 +148,25 @@
                 chatWindow.appendChild(messageDiv);
                 chatWindow.scrollTop = chatWindow.scrollHeight;
             }
-
             sendButton.addEventListener("click", function() {
                 const messageText = chatInput.value.trim();
                 if (messageText) {
                     appendMessage(messageText, "right");
                     chatInput.value = "";
-                    
-                    // Simple bot response
                     setTimeout(() => {
-                        appendMessage("Thanks for your message!", "left");
+                        appendMessage("I'm here to help! How can I assist?", "left");
                     }, 1000);
                 }
             });
-
-            // Send message on Enter key
             chatInput.addEventListener("keypress", function(event) {
                 if (event.key === "Enter") {
                     sendButton.click();
                 }
             });
         });
-
-        // Dark Mode Toggle
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
         }
     </script>
-
 </body>
 </html>
