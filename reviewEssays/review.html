@@ -23,14 +23,12 @@
         <div class="grid" id="essayGrid"></div>
     </div>
 
-    <!-- The Modal -->
     <div id="essayModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2 id="modalTitle"></h2>
             <p style="text-align: left; color: black;" id="modalBody"></p>
 
-            <!-- Rating slider -->
             <div>
                 <label class="rating-label" for="ratingSlider">Rate this essay (out of 10):</label>
                 <input type="range" id="ratingSlider" name="ratingSlider" min="1" max="10" class="slider">
@@ -45,7 +43,6 @@
                 }
             </script>
 
-            <!-- Criteria for review -->
             <div id="criteria">
                 <h3>Review Criteria:</h3>
                 <div>
@@ -86,7 +83,6 @@
     </div>
 
     <script>
-        // Sample essays to populate the page
         const sampleEssays = [
             { title: "The Future of Artificial Intelligence", body: "Artificial Intelligence (AI) has rapidly advanced over the past decade, influencing various sectors such as healthcare, finance, and automation. The potential of AI raises ethical concerns and opportunities for innovation..." },
             { title: "The Impact of Climate Change", body: "Climate change is an ongoing crisis that affects global temperatures, weather patterns, and sea levels. Immediate action is necessary to mitigate its devastating effects on both ecosystems and human populations..." },
@@ -111,22 +107,18 @@
         }
 
         function reviewEssay(title, body) {
-            // Set the title and body for the modal
             document.getElementById("modalTitle").innerText = title;
             document.getElementById("modalBody").innerText = body;
 
-            // Show the modal
             const modal = document.getElementById("essayModal");
             modal.style.display = "block";
         }
 
-        // Close the modal when the user clicks on <span> (x)
         document.querySelector(".close").onclick = function() {
             const modal = document.getElementById("essayModal");
             modal.style.display = "none";
         }
 
-        // Close the modal if the user clicks outside of the modal content
         window.onclick = function(event) {
             const modal = document.getElementById("essayModal");
             if (event.target == modal) {
@@ -134,7 +126,6 @@
             }
         }
 
-        // Load essays on page load
         window.onload = addFakeEssays;
     </script>
 
