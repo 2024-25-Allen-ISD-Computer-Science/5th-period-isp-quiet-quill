@@ -79,14 +79,14 @@ p {
     position:absolute;
 }
 
-ul {
+ul.navigation {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
-  position: -webkit-sticky;
   position: sticky;
+  font-family: georgia;
 }
 
 li {
@@ -96,6 +96,7 @@ li {
 
 li:last-child {
   border-right: none;
+  border-left: 1px solid #bbb;
 }
 
 li a {
