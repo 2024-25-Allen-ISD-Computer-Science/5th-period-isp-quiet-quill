@@ -6,16 +6,20 @@
   <title>Essay Submission</title>
   <link rel="stylesheet" href="submit.css">
   <link rel="stylesheet" href="../home.css">
+  <link rel="stylesheet" href="../View-Essay-To-Edit.css">
 </head>
 <body>
-  <ul class="navigation">
-      <li><a href="/home.html">Home</a></li>
-      <li><a class="active" href="/submitEssay/submit.html">Submit Essays</a></li>
-      <li><a href="/reviewEssays/review.html">Review Essays</a></li>
-      <li><a href="/View-Essay-To-Edit.html">View My Essays to Edit</a></li>
-      <li><a href="/Meet-The-Team.html">Meet the Team</a></li>
-      <li style="float:right"><a href="/profile.html">Profile</a></li>
-  </ul>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <ul class="navigation">
+        <li><a href="/home.html">Home</a></li>
+        <li><a href="/submitEssay/submit.html">Submit Essays</a></li>
+        <li><a href="/reviewEssays/review.html">Review Essays</a></li>
+        <li><a href="/feedback.html">Feedback</a></li>
+        <li><a class="active" href="/View-Essay-To-Edit.html">View My Essays to Edit</a></li>
+        <li><a href="/Meet-The-Team.html">Meet the Team</a></li>
+        <li><a href="/profile.html">Profile</a></li>
+    </ul>
 
   <div id="essayModal" class="modal">
     <div class="modal-content">
@@ -33,7 +37,7 @@
   </div>
 
   <div class="container">
-    <h1>My Essays</h1>
+    <h1 style="color: white">My Essays</h1>
     <button id="openModalBtn" class="popup-btn">Submit Essay</button>
     <div class="grid" id="essayGrid">
 
@@ -79,6 +83,10 @@
     "Test Essay",
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt, odio vel varius fringilla, neque purus malesuada velit, sit amet vehicula velit est at odio. Integer sodales, purus sed tristique egestas, justo magna aliquet nisi, sit amet consequat lacus nisl eu mauris. Praesent vel enim quis metus tristique feugiat at non nulla. Aliquam sit amet felis sed velit consequat vulputate a ac erat."
     )
+
+    function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+    }
   </script>
 
   <script type="module">

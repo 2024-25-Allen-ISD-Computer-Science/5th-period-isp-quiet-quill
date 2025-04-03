@@ -7,60 +7,33 @@
     <link rel="stylesheet" href="/home.css">
     <script defer src="/script.js"></script>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            transition: background 0.3s, color 0.3s;
-        }
-        .dark-mode {
-            background-color: #121212;
-            color: white;
-        }
-        .dark-mode .white-page {
-            background: #333;
-            color: white;
-            border-color: #555;
-        }
-        .dark-mode-toggle {
-            background: #555;
-            color: white;
+        /* Chat Input */
+        .chat-input {
             padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-        .main-container {
-            padding: 20px;
-        }
-        .white-page {
-            width: 100%;
-            min-height: 300px;
-            border: 2px solid #ddd;
-            background: #fff;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow-y: auto;
-            resize: vertical;
-            margin-bottom: 10px;
-        }
-        .button-container {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        .button-container button {
-            padding: 12px 18px;
+            border: 1px solid #ddd;
             border-radius: 6px;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-            transition: transform 0.2s, background-color 0.3s;
+            margin-bottom: 10px;
+            outline: none;
+            font-size: 14px;
         }
-        .button-container button:hover {
-            background-color: #45a049;
-            transform: scale(1.05);
+
+        .chat-input:focus {
+            border-color: #4CAF50;
         }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 15px;
+            }
+
+            .chat-window {
+                width: 270px;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
     </style>
 </head>
 

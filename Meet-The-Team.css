@@ -282,9 +282,9 @@ button {
   margin-top: 20px;
   font-family: "Merriweather Sans", sans-serif;
   letter-spacing: 4px;
-  width:200px;
-  height:50px;
-  border:none;
+  width: 200px;
+  height: 50px;
+  border: none;
   color: white;
   background-color: rgb(255, 0, 68);
   border-radius: 4px;
@@ -296,6 +296,6 @@ button {
 
 .card-content .btn:hover {
   box-shadow: inset 300px 0 0 0 #f9e506;
-    cursor: pointer;
-    color: #000;
+  cursor: pointer;
+  color: #000;
 }
