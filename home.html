@@ -56,7 +56,25 @@
         <input type="text" class="chat-input" placeholder="Type a message...">
     </div>
 
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
 </body>
+
+<script>
+    // Show the button when user scrolls down
+    window.onscroll = function() {
+      const btn = document.getElementById("scrollTopBtn");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+  
+    // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 
 <script>
     window.onclick = function(event) {
