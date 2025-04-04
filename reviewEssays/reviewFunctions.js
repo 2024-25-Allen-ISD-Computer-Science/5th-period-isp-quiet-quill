@@ -24,13 +24,17 @@ export const addReview = async (essayID, comment, rating, reviewerID, reviewerNa
       reviewerName: reviewerName,
       reviewID: reviewID,
       createdAt: new Date().toISOString(),
+      criteria1: [criteria1Score, criteria1Comment],
+      criteria2: [criteria2Score, criteria2Comment],
+      criteria3: [criteria3Score, criteria3Comment],
+      criteria4: [criteria4Score, criteria4Comment],
+      criteria5: [criteria5Score, criteria5Comment],
     };
     await setDoc(reviewRef, reviewData); // Add the review to Firestore
     console.log("Review added successfully!");
   } catch (error) {
     console.error("Error adding review: ", error);
   }
-};
 
 export const editReview = async (essayID, reviewID, updatedComment, updatedRating) => {
   try {
