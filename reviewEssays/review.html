@@ -75,7 +75,7 @@
                     <textarea id="additionalComments" class="comment-box" placeholder="Enter any additional comments..."></textarea>
                 </div>
                 <div style="text-align: right; margin-top: 20px;">
-                    <button id="submitReviewBtn">Submit Review</button>
+                    <button id="submitReviewBtn" onclick="closePopup()">Submit Review</button>
                     <button id="cancelReviewBtn">Cancel</button>
                 </div>
             </div>
@@ -84,7 +84,7 @@
 
     <script>
         const sampleEssays = [
-            { title: "The Future of Artificial Intelligence", body: "Artificial Intelligence (AI) has rapidly advanced over the past decade, influencing various sectors such as healthcare, finance, and automation. The potential of AI raises ethical concerns and opportunities for innovation..." },
+            { title: "Test Essay", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt, odio vel varius fringilla, neque purus malesuada velit, sit amet vehicula velit est at odio. Integer sodales, purus sed tristique egestas, justo magna aliquet nisi, sit amet consequat lacus nisl eu mauris. Praesent vel enim quis metus tristique feugiat at non nulla. Aliquam sit amet felis sed velit consequat vulputate a ac erat." },
             { title: "The Impact of Climate Change", body: "Climate change is an ongoing crisis that affects global temperatures, weather patterns, and sea levels. Immediate action is necessary to mitigate its devastating effects on both ecosystems and human populations..." },
             { title: "The Role of Social Media in Society", body: "Social media platforms have transformed how people communicate, access news, and build communities. However, they also raise concerns about privacy, misinformation, and mental health..." },
             { title: "The Importance of Space Exploration", body: "Space exploration has led to groundbreaking discoveries about our universe. From the Moon landing to Mars rovers, these missions inspire future generations and expand scientific knowledge..." },
@@ -112,6 +112,11 @@
 
             const modal = document.getElementById("essayModal");
             modal.style.display = "block";
+        }
+
+        function closePopup() {
+            const modal = document.getElementById("essayModal");
+            modal.style.display = "none";
         }
 
         document.querySelector(".close").onclick = function() {

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/home.css">
     <script defer src="/script.js"></script>
     <style>
-        /* Chat Input */
         .chat-input {
             padding: 10px;
             border: 1px solid #ddd;
@@ -21,7 +20,6 @@
             border-color: #4CAF50;
         }
 
-        /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .main-container {
                 padding: 15px;
@@ -33,7 +31,6 @@
                 right: 10px;
             }
         }
-
     </style>
 </head>
 
@@ -51,8 +48,7 @@
     <div class="main-container">
         <div class="white-page" contenteditable="true">Start writing your essay here...</div>
         <div class="button-container">
-            <button class="highlighter">Highlighter</button>
-            <button class="comment">Comment</button>
+            <button class="highlighter">Highlight</button>
             <button class="underline">Underline</button>
         </div>
     </div>
@@ -68,6 +64,7 @@
             const chatWindow = document.getElementById("chat-messages");
             const chatInput = document.getElementById("chat-input");
             const sendButton = document.getElementById("send-message");
+
             function appendMessage(text, className) {
                 const messageDiv = document.createElement("div");
                 messageDiv.textContent = text;
@@ -75,22 +72,38 @@
                 chatWindow.appendChild(messageDiv);
                 chatWindow.scrollTop = chatWindow.scrollHeight;
             }
-            sendButton.addEventListener("click", function() {
-                const messageText = chatInput.value.trim();
-                if (messageText) {
-                    appendMessage(messageText, "right");
-                    chatInput.value = "";
-                    setTimeout(() => {
-                        appendMessage("I'm here to help! How can I assist?", "left");
-                    }, 1000);
-                }
-            });
+
+            if (sendButton) {
+                sendButton.addEventListener("click", function() {
+                    const messageText = chatInput.value.trim();
+                    if (messageText) {
+                        appendMessage(messageText, "right");
+                        chatInput.value = "";
+                        setTimeout(() => {
+                            appendMessage("I'm here to help! How can I assist?", "left");
+                        }, 1000);
+                    }
+                });
+            }
+
             chatInput.addEventListener("keypress", function(event) {
                 if (event.key === "Enter") {
-                    sendButton.click();
+                    if (sendButton) sendButton.click();
                 }
             });
+
+            const highlighterButton = document.querySelector('.highlighter');
+            const underlineButton = document.querySelector('.underline');
+
+            highlighterButton.addEventListener('click', function() {
+                document.execCommand('backColor', false, 'yellow');
+            });
+
+            underlineButton.addEventListener('click', function() {
+                document.execCommand('underline', false, null);
+            });
         });
+
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
         }
