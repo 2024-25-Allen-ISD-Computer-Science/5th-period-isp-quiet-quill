@@ -137,7 +137,7 @@ input[type="submit"]:hover, .popup-btn:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.edit-btn, .remove-btn {
+.edit-btn, .remove-btn, .review-btn {
   color: white;
   border: none;
   border-radius: 4px;
@@ -162,4 +162,12 @@ input[type="submit"]:hover, .popup-btn:hover {
 
 .remove-btn:hover {
   background-color: #c20000;
+}
+
+.review-btn {
+  background-color: #9fe85b;
+}
+
+.review-btn:hover {
+  background-color: #618e37;
 }

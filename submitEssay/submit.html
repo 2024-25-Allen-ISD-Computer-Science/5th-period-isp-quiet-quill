@@ -23,14 +23,14 @@
   <div id="essayModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <form action="/submit_essay" method="POST">
+      <form id="essayForm" action="" method="POST">
         <label for="title">Essay Title/Subject</label>
         <input type="text" id="title" name="title" required>
 
         <label for="essay">Essay</label>
         <textarea id="essay" name="essay" rows="10" required></textarea>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" onclick="addGridItems(1, document.getElementById('title').value, document.getElementById('essay').value)">
       </form>
     </div>
   </div>
@@ -44,6 +44,9 @@
   </div>
 
   <script>
+    document.getElementById('essayForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+    });
     var modal = document.getElementById("essayModal");
     var btn = document.getElementById("openModalBtn");
     var span = document.getElementsByClassName("close")[0];
@@ -74,9 +77,63 @@
                 <p>${body}</p>
                 <button class="edit-btn">Edit</button>
                 <button class="remove-btn">Remove</button>
+                <button class="review-btn" onclick="openReviewModal()">See Review</button>
             `;
             grid.appendChild(gridItem);
         }
+    }
+
+    function openReviewModal() {
+      const reviewModal = document.createElement('div');
+      reviewModal.classList.add('modal');
+      reviewModal.innerHTML = `
+        <div class="modal-content">
+          <span class="close" onclick="closeReviewModal()">&times;</span>
+          <h2>Essay Review Criteria</h2>
+          <div>
+              <strong>1. Overall Rating</strong>
+              <p>Rating: 8/10</p>
+              <div class="comment-box" readonly></div>
+          </div>
+          <div>
+              <strong>2. Clarity of Argument:</strong>
+              <p>Rating: 10/10</p>
+              <div class="comment-box" readonly></div>
+          </div>
+          <div>
+              <strong>3. Structure and Organization:</strong>
+              <p>Rating: 10/10</p>
+              <div class="comment-box" readonly></div>
+          </div>
+          <div>
+              <strong>4. Grammar and Spelling:</strong>
+              <p>Rating: 5/10</p>
+              <div class="comment-box" readonly></div>
+          </div>
+          <div>
+              <strong>5. Use of Evidence:</strong>
+              <p>Rating: 5/10</p>
+              <div class="comment-box" readonly></div>
+          </div>
+          <div>
+              <strong>6. Creativity and Originality:</strong>
+              <p>Rating: 5/10</p>
+              <div class="comment-box" readonly></div>
+          </div>
+          <div>
+              <strong>Additional Comments:</strong>
+              <div class="comment-box" readonly>good essay</div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(reviewModal);
+      reviewModal.style.display = "block";
+    }
+
+    function closeReviewModal() {
+      const reviewModal = document.querySelector('.modal');
+      reviewModal.style.display = "none";
+      document.body.removeChild(reviewModal);
     }
     addGridItems(1, 
     "Test Essay",
